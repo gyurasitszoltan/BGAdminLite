@@ -1,0 +1,19 @@
+default-port    : 7000
+default-ip      : 0.0.0.0
+
+rcon-host       : host
+rcon-port       : 28016
+rcon-pass       : titok
+rcon-noretry    : false
+
+server-info     : Szerver információk:\n MAP info: 2.7k \n FB: - \n TS3 szerver: -
+wipe-info       : Wipe: \n Előző: - \n Következő: 07.20.
+
+ingame-date-regex   : ^(.+) ([0-9]+):([0-9]+):([0-9]+)$
+
+default-user-feed   : true
+default-killfeed    : true
+
+moderatorids    : ["123456"]
+adminids        : ["123456"]
+
