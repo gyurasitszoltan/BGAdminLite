@@ -1,5 +1,17 @@
-# BGAdminLite
-BG Rust server admin
+# BG Rust server admin lite 
+
+Funkciók / Features
+
+- killfeed
+- játékos ki/be lépés / player feed
+- wipe info
+- time info
+- szerver info / server info
+- moderator parancsok / moderator commands (kick, mute, unmute, addbl, delbl)
+- admin parancsok / admin commands (ban)
+- NPC info
+- játékos info / player info
+
 
 Telepítés Debian vagy Ubuntu alapú linuxon / Installation on Debian or Ubuntu based Linux distributions
 
