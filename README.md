@@ -27,7 +27,7 @@ BGAdminLite letöltése / Clone or download BGAdminLite from github
 
 git clone https://github.com/gyurasitszoltan/BGAdminLite.git BGAdminLite
 
-OR
+VAGY / OR
 
 wget https://github.com/gyurasitszoltan/BGAdminLite/archive/master.zip
 
@@ -38,5 +38,18 @@ Konfigurálás / Configuration
 config-example file átnevezése config -ra / rename config-example file to config
 
 config file szerkesztése a megfelelő paraméterekkel / edit your config file 
+
+5,
+BGAdminLite futtatása / run BGAdminLite
+
+node index.js
+
+
+6,
+Ajánlott a PM2 használata / Use PM2 manager
+
+sudo npm install pm2 -g
+
+pm2 start index.js
 
 
