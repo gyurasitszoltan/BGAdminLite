@@ -13,7 +13,7 @@ exports.install = function() {
     var self = this;
 
     if(F.config['chat-log-mail-enable']) {
-        F.schedule(F.config['chat-log-mail-scheduler'], function() {
+        F.schedule("00:00",F.config['chat-log-mail-scheduler'], function() {
             if(chatLogBuffer.length > 0) {
                 let transporter = F.nodemailer.createTransport({
                     host: F.config['smtp-host'],
