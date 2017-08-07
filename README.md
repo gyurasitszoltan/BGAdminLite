@@ -32,6 +32,8 @@ sudo npm install ws -g
 
 sudo npm install random-js -g
 
+sudo npm install nodemailer -g
+
 
 
 3,
