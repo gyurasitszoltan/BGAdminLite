@@ -15,7 +15,7 @@ exports.install = function() {
     if(F.config['chat-log-mail-enable']) {
         F.schedule(F.config['chat-log-mail-scheduler'], function() {
             if(chatLogBuffer.length > 0) {
-                let transporter = nodemailer.createTransport({
+                let transporter = F.nodemailer.createTransport({
                     host: F.config['smtp-host'],
                     port: F.config['smtp-port'],
                     secure: false
