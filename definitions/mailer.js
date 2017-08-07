@@ -1,0 +1,2 @@
+
+F.nodemailer = require('nodemailer');

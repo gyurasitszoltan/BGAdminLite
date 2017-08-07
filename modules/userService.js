@@ -5,11 +5,40 @@
 exports.dependencies = ['rconService'];
 
 var inGameFeedEnable = F.config['default-user-feed'];
+var chatLogBuffer = new Array();
 
 exports.install = function() {
     console.log('Install USER service');
 
     var self = this;
+
+    if(F.config['chat-log-mail-enable']) {
+        F.schedule(F.config['chat-log-mail-scheduler'], function() {
+            if(chatLogBuffer.length > 0) {
+                let transporter = nodemailer.createTransport({
+                    host: F.config['smtp-host'],
+                    port: F.config['smtp-port'],
+                    secure: false
+                });
+
+                let mailOptions = {
+                    from:     F.config['chat-log-mail-from'],
+                    to:       F.config['chat-log-mail-to'],
+                    subject:  F.config['chat-log-mail-subject'],
+                    text:     '',
+                    html:     chatLogBuffer.join('<br />')
+                };
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        chatLogBuffer = new Array();
+                    }
+                });
+            }
+        });
+    }
 
     F.on('rconmessage', function(msg) {
 
@@ -31,6 +60,11 @@ exports.install = function() {
 
         if( data = chatRE.exec(msg) ) {
             userChat(data);
+
+            /// chat LOG
+            if(F.config['chat-log-mail-enable']) {
+                chatLogBuffer.push(new Date().format('HH:MM:ss') +"|"+ data[4] +"|"+ data[2] +"|"+ data[5]);
+            }
 
         } else if( data = joinRE.exec(msg) ) {
             userJoin(data);

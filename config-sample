@@ -6,14 +6,22 @@ rcon-port       : 28016
 rcon-pass       : titok
 rcon-noretry    : false
 
-server-info     : Szerver információk:\n MAP info: 2.7k \n FB: - \n TS3 szerver: -
-wipe-info       : Wipe: \n Előző: - \n Következő: 07.20.
+server-info     : Szerver info:\n MAP info: \n FB: - \n TS3 szerver: -
+wipe-info       : Wipe: \n Prev: - \n Next:
 
 ingame-date-regex   : ^(.+) ([0-9]+):([0-9]+):([0-9]+)$
 
 default-user-feed   : true
 default-killfeed    : true
 
+smtp-host   : localhost
+smtp-port   : 25
+
+chat-log-mail-enable    : false
+chat-log-mail-scheduler : 5 minutes
+chat-log-mail-from      : sample@domain.com
+chat-log-mail-to        : sample@domain.com
+chat-log-mail-subject   : CHAT LOG
+
 moderatorids    : ["123456"]
 adminids        : ["123456"]
-
