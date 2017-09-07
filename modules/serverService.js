@@ -28,7 +28,7 @@ exports.install = function() {
 
     if(F.config['scheduled-message-enable']) {
         F.schedule("00:00",F.config['scheduled-message-scheduler'], function() {
-            F.global.rcon.service.Command('say <color=yellow>' + F.config['scheduled-message-text'] + '</color>');
+            F.global.rcon.service.Command('say <color=yellow>' + F.config['scheduled-message-text'].split('\\n').join("\n") + '</color>');
         });
     }
 
