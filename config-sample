@@ -23,5 +23,11 @@ chat-log-mail-from      : sample@domain.com
 chat-log-mail-to        : sample@domain.com
 chat-log-mail-subject   : CHAT LOG
 
+scheduled-message-enable    : true
+scheduled-message-scheduler : 30 minutes
+scheduled-message-text      : WIPE info!\n...
+
+show-server-system-messages : false
+
 moderatorids    : ["123456"]
 adminids        : ["123456"]

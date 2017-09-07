@@ -13,17 +13,24 @@ exports.install = function() {
 
     F.on('rconmessage', function(msg) {
 
-        var saveRE       = new RegExp(/^Saved (.+) ents, serialization\((.+)\), write\((.+)\), disk\((.+)\) totalstall\((.+)\)/);
+        if(F.config['show-server-system-messages']) {
+            var saveRE       = new RegExp(/^Saved (.+) ents, serialization\((.+)\), write\((.+)\), disk\((.+)\) totalstall\((.+)\)/);
+            if((data = saveRE.exec(msg))) {
+                console.log("Jatek adatai elmentve!");
+                F.global.rcon.service.Command('say <color=yellow>Játékállás elmentve!</color>');
 
-        if((data = saveRE.exec(msg))) {
-            console.log("Jatek adatai elmentve!");
-            F.global.rcon.service.Command('say <color=yellow>Játékállás elmentve!</color>');
-
-            lastSaveTime = new Date().format('yyyy-mm-dd HH:MM:ss');
-            lastEntsCount = data[1];
+                lastSaveTime = new Date().format('yyyy-mm-dd HH:MM:ss');
+                lastEntsCount = data[1];
+            }
         }
 
     });
+
+    if(F.config['scheduled-message-enable']) {
+        F.schedule("00:00",F.config['scheduled-message-scheduler'], function() {
+            F.global.rcon.service.Command('say <color=yellow>' + F.config['scheduled-message-text'] + '</color>');
+        });
+    }
 
 };
 
